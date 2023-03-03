@@ -68,4 +68,8 @@ defmodule Helpdesk.Support.Ticket do
       allow_nil? false
     end
   end
+
+  relationships do
+    belongs_to :representative, Helpdesk.Support.Representative
+  end
 end
