@@ -1,8 +1,4 @@
 defmodule Helpdesk.Application do
-  # See https://hexdocs.pm/elixir/Application.html
-  # for more information on OTP Applications
-  @moduledoc false
-
   use Application
 
   @impl true
@@ -10,6 +6,7 @@ defmodule Helpdesk.Application do
     children = [
       # Starts a worker by calling: Helpdesk.Worker.start_link(arg)
       # {Helpdesk.Worker, arg}
+      Helpdesk.Repo
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

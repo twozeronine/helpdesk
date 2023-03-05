@@ -1,6 +1,11 @@
 defmodule Helpdesk.Support.Representative do
   use Ash.Resource,
-    data_layer: Ash.DataLayer.Ets
+    data_layer: AshPostgres.DataLayer
+
+  postgres do
+    table "representatives"
+    repo Helpdesk.Repo
+  end
 
   actions do
     defaults [:create, :read, :update, :destroy]
