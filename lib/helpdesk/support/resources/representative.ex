@@ -20,4 +20,16 @@ defmodule Helpdesk.Support.Representative do
   relationships do
     has_many :tickets, Helpdesk.Support.Ticket
   end
+
+  aggregates do
+    count :total_tickets, :tickets
+
+    count :open_tickets, :tickets do
+      filter expr(status == :open)
+    end
+
+    count :closed_tickets, :tickets do
+      filter expr(status == :closed)
+    end
+  end
 end
