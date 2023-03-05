@@ -32,4 +32,8 @@ defmodule Helpdesk.Support.Representative do
       filter expr(status == :closed)
     end
   end
+
+  calculations do
+    calculate :percent_open, :float, expr(open_tickets / total_tickets)
+  end
 end
